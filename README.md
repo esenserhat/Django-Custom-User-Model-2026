@@ -205,6 +205,11 @@ Bu projenin temel amacı:
 
 ---
 
+## Katkıda Bulunanlar
+
+- Serhat Esen - Backend & Django Architecture
+- Mustafa Ensar Özdemir - Frontend & UI/UX
+
 ## License / Lisans
 
 **EN:**
