@@ -143,6 +143,68 @@ Bu projenin temel amacı:
 
 ---
 
+## Django Settings Notes / Django Ayarları Notları
+
+**EN:**
+- In `main/settings.py`, set the following for custom user model:
+  ```python
+  AUTH_USER_MODEL = 'app_auth.Account'
+  ```
+- Make sure your `INSTALLED_APPS` includes `'app_auth'` and `'django.contrib.auth'`.
+- Configure email backend for password reset:
+  ```python
+  EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+  EMAIL_HOST = 'your-smtp-server'
+  EMAIL_PORT = 587
+  EMAIL_USE_TLS = True
+  EMAIL_HOST_USER = 'your-email@example.com'
+  EMAIL_HOST_PASSWORD = 'your-email-password'
+  DEFAULT_FROM_EMAIL = 'your-email@example.com'
+  ```
+- Set static and media file settings:
+  ```python
+  STATIC_URL = 'static/'
+  STATICFILES_DIRS = [BASE_DIR / 'assets']
+  MEDIA_URL = '/uploads/'
+  MEDIA_ROOT = BASE_DIR / 'uploads'
+  ```
+- Set login URLs:
+  ```python
+  LOGIN_URL = 'pageLogin'
+  LOGIN_REDIRECT_URL = 'home'
+  ```
+
+**TR:**
+- `main/settings.py` dosyasında özel kullanıcı modeli için şunu ekleyin:
+  ```python
+  AUTH_USER_MODEL = 'app_auth.Account'
+  ```
+- `INSTALLED_APPS` içinde `'app_auth'` ve `'django.contrib.auth'` olduğundan emin olun.
+- Şifre sıfırlama için e-posta ayarlarını yapılandırın:
+  ```python
+  EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+  EMAIL_HOST = 'smtp sunucunuz'
+  EMAIL_PORT = 587
+  EMAIL_USE_TLS = True
+  EMAIL_HOST_USER = 'mail-adresiniz@example.com'
+  EMAIL_HOST_PASSWORD = 'mail-şifreniz'
+  DEFAULT_FROM_EMAIL = 'mail-adresiniz@example.com'
+  ```
+- Statik ve medya dosyası ayarlarını yapın:
+  ```python
+  STATIC_URL = 'static/'
+  STATICFILES_DIRS = [BASE_DIR / 'assets']
+  MEDIA_URL = '/uploads/'
+  MEDIA_ROOT = BASE_DIR / 'uploads'
+  ```
+- Giriş URL'lerini ayarlayın:
+  ```python
+  LOGIN_URL = 'pageLogin'
+  LOGIN_REDIRECT_URL = 'home'
+  ```
+
+---
+
 ## License / Lisans
 
 **EN:**
