@@ -1,0 +1,43 @@
+.tox-powered-by {
+    display: none !important;
+}
+
+/* Tailwind Reset'ini Override Etmek */
+.mce-content-body ul,
+.mce-content-body ol {
+    list-style: revert !important;
+    margin: 1em 0 1em 1.5em !important;
+    padding: 0 !important;
+}
+
+.mce-content-body ul {
+    list-style-type: disc !important;
+}
+
+.mce-content-body ol {
+    list-style-type: decimal !important;
+}
+
+.mce-content-body li {
+    margin: 0.5em 0 !important;
+    padding: 0 !important;
+    display: list-item !important;
+}
+
+.mce-content-body ul ul,
+.mce-content-body ul ol,
+.mce-content-body ol ul,
+.mce-content-body ol ol {
+    margin: 0 0 0 2em !important;
+}
+
+/* Tailwind'in Liste Reset'inin Undo'su */
+.mce-content-body li::marker {
+    display: marker;
+}
+
+/* Paragraflar içindeki listeler */
+.mce-content-body p ul,
+.mce-content-body p ol {
+    display: block !important;
+}

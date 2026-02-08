@@ -1,0 +1,94 @@
+{% extends 'parts/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body p-2.5">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+            <!-- Avatar -->
+            <div class="flex justify-center sm:justify-start">
+                <img class="size-20 rounded-lg border border-gray object-cover" 
+                src="{% if user.photo %}{{ user.photo.url }}{% else %}{% static 'images/avatar/avatar_blank.png' %}{% endif %}">
+            </div>
+            
+            
+                
+            <div class="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+                <div class="text-center sm:text-left">
+                    <h1 class="text-lg text-title">{{ user.full_name }}</h1>
+                    <p class="text-content mt-0.5">
+                        {% if user.title %}
+                            {{ user.title }}
+                        {% else %}
+                            Title Info Missing
+                        {% endif %}
+                    </p>
+                </div>
+
+                <a href="{% url 'sifre_degistir' %}" class="eo-btn eo-btn-primary sm:self-start">
+                    Change Password
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Information -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-title">Personal Information</h2>
+        </div>
+        <dl class="divide-y divide-gray text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2.5 p-2.5">
+                <dt class="text-muted">Email</dt>
+                <dd class="text-content sm:text-right truncate">{{ user.email }}</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2.5 p-2.5">
+                <dt class="text-muted">Mobile</dt>
+                <dd class="text-content sm:text-right truncate">
+                    {% if user.phone_gsm %}
+                        {{ user.phone_gsm }}
+                    {% else %}
+                        Mobile Info Missing
+                    {% endif %}
+                </dd>
+            </div>
+        </dl>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-title">Company Information</h2>
+        </div>
+        <dl class="divide-y divide-gray text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2.5 p-2.5">
+                <dt class="text-muted">Department</dt>
+                <dd class="text-content sm:text-right truncate">
+                    {% if user.department %}
+                        {{ user.department }}
+                    {% else %}
+                        Department Info Missing
+                    {% endif %}
+                </dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2.5 p-2.5">
+                <dt class="text-muted">Title</dt>
+                <dd class="text-content sm:text-right truncate">
+                    {% if user.title %}
+                        {{ user.title }}
+                    {% else %}
+                        Title Info Missing
+                    {% endif %}
+                </dd>
+            </div>
+        </dl>
+    </div>
+</div>
+
+
+
+{% endblock content %}

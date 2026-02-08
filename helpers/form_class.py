@@ -1,0 +1,5 @@
+SELECT_CLASS= "col-start-1 row-start-1 w-full eo-form-selection"
+INPUT_CLASS= "eo-form-input"
+TEXTAREA_CLASS= "flex-1 eo-form-input resize-y"
+SEARCH_INPUT_CLASS = "eo-search-input"
+SEARCH_SELECTION_CLASS = "col-start-1 row-start-1 w-full eo-form-selection-sm"

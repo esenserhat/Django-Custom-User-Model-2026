@@ -1,0 +1,72 @@
+
+    
+{% for message in messages %}
+    
+    {% if message.tags == "success" %}
+        <div class="eo-alert-success">
+            <div class="eo-alert-success-inner">
+                <iconify-icon icon="line-md:check-all" class="eo-alert-success-icon"></iconify-icon>
+                <div class="ml-3.5">
+                    <p class="eo-alert-success-title"><strong class="mr-1">{{ message }}</strong></p>
+                </div>
+                <div class="ml-auto pl-3.5">
+                    <div class="-mx-1.5 -my-1.5">
+                        <button type="button" class="eo-alert-success-close" onclick="this.closest('.eo-alert-success').remove()">
+                            <iconify-icon icon="line-md:close" class="eo-alert-success-icon"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif message.tags == "error" %}
+        <div class="eo-alert-danger">
+            <div class="eo-alert-danger-inner">
+                <iconify-icon icon="line-md:alert-circle-loop" class="eo-alert-danger-icon"></iconify-icon>
+                <div class="ml-3.5">
+                    <p class="eo-alert-danger-title"><strong class="mr-1">{{ message }}</strong></p>
+                </div>
+                <div class="ml-auto pl-3.5">
+                    <div class="-mx-1.5 -my-1.5">
+                        <button type="button" class="eo-alert-danger-close" onclick="this.closest('.eo-alert-danger').remove()">
+                            <iconify-icon icon="line-md:close" class="eo-alert-danger-icon"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif message.tags == "warning" %}
+        <div class="eo-alert-warning">
+            <div class="eo-alert-warning-inner">
+                <iconify-icon icon="line-md:bell-alert-filled-loop" class="eo-alert-warning-icon"></iconify-icon>
+                <div class="ml-3.5">
+                    <p class="eo-alert-warning-title"><strong class="mr-1">{{ message }}</strong></p>
+                </div>
+                <div class="ml-auto pl-3.5">
+                    <div class="-mx-1.5 -my-1.5">
+                        <button type="button" class="eo-alert-warning-close" onclick="this.closest('.eo-alert-warning').remove()">
+                            <iconify-icon icon="line-md:close" class="eo-alert-warning-icon"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif message.tags == "info" %}
+        <div class="eo-alert-primary">
+            <div class="eo-alert-primary-inner">
+                <iconify-icon icon="line-md:watch-loop" class="eo-alert-primary-icon"></iconify-icon>
+                <div class="ml-3.5">
+                    <p class="eo-alert-primary-title"><strong class="mr-1">{{message}}</strong></p>
+                </div>
+                <div class="ml-auto pl-3.5">
+                    <div class="-mx-1.5 -my-1.5">
+                        <button type="button" class="eo-alert-primary-close" onclick="this.closest('.eo-alert-primary').remove()">
+                            <iconify-icon icon="line-md:close" class="eo-alert-primary-icon"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+        
+{% endfor %}
+            

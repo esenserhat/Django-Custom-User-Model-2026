@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <script src="http://localhost:8000/__reload__/events/" defer></script>
+</head>
+
+<style>
+        @keyframes gradient {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        .animate-gradient {
+            animation: gradient 3s ease infinite;
+        }
+    </style>
+
+
+
+<body class="h-full flex flex-col">
+    <div class="flex-grow flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <img src="{% static 'images/logo/django_line_logo.png' %}" class="mx-auto h-15 w-auto" />
+            <div class="mt-7 text-center text-xl font-bold tracking-tight text-[#5386D9]">Django Custom User Profile App</div>
+        </div>
+        
+        {% if messages %}
+                <div class="mt-7 sm:mx-auto sm:w-full sm:max-w-[480px]">
+                    {% include 'messages/messages.html' %}
+                </div>
+        {% endif %}
+
+        <div class="mt-7 sm:mx-auto sm:w-full sm:max-w-[480px]">
+            <div class="bg-white shadow-sm sm:rounded-lg">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="eo-form-body px-6 py-6 lg:px-8">
+                        <div class="col-span-1 lg:col-span-12">
+                            <label for="" class="eo-form-label">E-Mail Address</label>
+                                {{ form.username }}
+                                <input type="text" class="eo-form-input" id="email" name="email" placeholder="Enter your email address" required>
+
+                                {% if form.username.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.username.errors.0 }}</p>
+                                {% endif %}
+                        </div>
+
+                        <div class="col-span-1 lg:col-span-12">
+                            <label for="" class="eo-form-label">Password</label>
+                                {{ form.password }}
+                                <input type="password" id="password-input" name="password" class="eo-form-input" placeholder="Enter your password" required>
+
+                                {% if form.password.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.password.errors.0 }}</p>
+                                {% endif %}
+
+                            <div class="text-sm mt-2 text-right">
+                                <a href=" {% url 'password_reset' %}" class="font-semibold text-primary">Forgot Password?</a>
+                            </div>
+                        </div>
+
+                        <div class="col-span-1 lg:col-span-12 pb-2.5">
+                            <button type="submit" class="eo-btn eo-btn-primary w-full">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 text-center text-sm font-bold">
+        <p>&copy; 2026
+            <span class="bg-gradient-to-r from-gray-500 via-sky-400 to-blue-600 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">
+                Serhat ESEN
+            </span>
+            
+        </p>
+    </footer>
+</body>
+
+
+
+
+
+</html>
